@@ -1,0 +1,38 @@
+.page__card__list{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+}
+.page__card__list :hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.page__card__name{
+    font-size: 14px;
+    height: 50px;
+}
+.page__card__quantity{
+    font-size: 12px;
+}
+.page__card__price{
+    font-size: 18px;
+    font-weight: 800;
+    color: #666666;
+}
+.page__card__button{
+    width: 100%;
+    padding: 5px ;
+    font-size: 14px;
+    color:#F97178;
+    font-weight: 800;
+    background-color: white;
+    border: 1px solid#EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline-style: none;
+    cursor: pointer;
+}

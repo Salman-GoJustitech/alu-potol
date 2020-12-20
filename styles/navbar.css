@@ -1,0 +1,81 @@
+.navbar{
+    display: flex;
+    background-color: #F9E266;
+    padding: 5px;
+    position: fixed;
+    height: 45px;
+    box-shadow: 0px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1111;
+}
+.navbar__toggle{
+    flex: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline-style: none;
+}
+.navbar__search{
+    flex: 8;
+    width: 100%;
+    display: flex;
+}
+.navbar__button{
+    background: white;
+    border: none;
+    flex: 1;
+    outline-style: none;
+    cursor: pointer;
+}
+.navbar__input{
+    border: none;
+    flex: 8;
+    padding: 10px;
+    outline-style: none;
+}
+.navbar__profile{
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline-style: none;
+    cursor: pointer;
+}
+.sidebar__background{
+    background-color: rgba(0, 0, 0,.3);
+    width:100%;
+    position: fixed;
+    height: 100%;
+    top:55px;
+    z-index: 11;
+    transition: all 1s ease-out;
+}
+.sidebar{
+    background-color: rgb(255, 255, 255);
+    width: 75%;
+    position: fixed;
+    height: 100%;
+    transition: all 1s ease-out;
+    z-index: 111;
+    box-shadow: 0px 0 10px rgba(255, 255, 255, 0.8);
+}
+.sidebar__header{
+    padding:  18px;
+    border-bottom: 1px solid#EEEEEE;
+}
+.sidebar__header__offer{
+    color: rgba(255, 0, 0, 0.719);
+    border:1px solid rgba(255, 0, 0, 0.719);
+    font-size: 12px;
+    font-weight: 900;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+.sidebar__category__main{
+    padding: 10px;
+}
+.sidebar__category{
+    display: flex;
+    padding-bottom: 10px;
+}
+.sidebar__category__name{
+    padding-left: 5px;
+}
