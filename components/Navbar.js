@@ -1,8 +1,25 @@
 import React,{useState} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import Cookies from 'universal-cookie';
+ 
+
+
+
 function Navbar() {
     const [menu,setMenu]=useState(false);
-    console.log(menu)
+    const [modal,setModal]=useState(false);
+
+    // const data = {
+    //     one: 'one',
+    //     two: 'two',
+    //     three: 'three'
+    // }
+
+    // const cookies = new Cookies();
+    // cookies.set('myCat', data, { path: '/' });
+    // console.log(cookies.get('myCat')); // Pacman
+    
     return (
         <div>
             
@@ -27,7 +44,9 @@ function Navbar() {
                         />
                     </button>
                 </div>
-                <button className="navbar__profile">
+                <button className="navbar__profile"
+                    onClick={() =>setModal(!modal)}
+                >
                     <Image
                     src="/3dot.png"
                     width={500}
@@ -72,6 +91,45 @@ function Navbar() {
                                 <Image src="/foods.png" width={20} height={20} />
                                 <p className="sidebar__category__name">Bread & Bakery</p>
                             </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            ):(null)}
+            {modal ? (
+                <div className="modal__background">
+                    <div style={{position:"fixed",top:"10%" ,left:"20%",width:"50%"}}>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"#4F4F4F",width:"100%"}}>
+                            <img src="/modal/1.png"/>
+                            <p style={{color:"white",fontSize:"22px"}}> User</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/2.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Your Profile</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/3.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Your Orders</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/4.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Payment History</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/5.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Change Password</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/6.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Language</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/7.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Help & More</p>
+                        </div>
+                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                            <img src="/modal/8.png"/>
+                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Log out</p>
                         </div>
                     </div>
                 </div>

@@ -6,9 +6,21 @@
     font-size: 15px;
     font-weight: 500;
     padding: 10px;
+    cursor: pointer;
 }
-.page__card__list :hover{
-    background-color: rgba(0, 0, 0, 0.6);
+
+.overlay{
+   
+        position: absolute;
+        top: 0;
+        width:50%;
+        height:50%;
+        left: 0;
+        background-color:#000;
+        opacity:0.5;
+        z-index: 100;
+        display: block;
+    
 }
 .page__card__name{
     font-size: 14px;

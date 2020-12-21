@@ -17,10 +17,13 @@
 .cart__count{
     text-align: center;
     flex: 2;
+
 }
 .cart__count__button{
     border: none;
     background-color: white;
+    outline-style: none;
+    cursor: pointer;
 }
 .cart__pic{
     flex: 2;
