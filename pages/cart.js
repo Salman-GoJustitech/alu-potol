@@ -1,12 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Cookies from 'universal-cookie';
 
+
+
 function Cart() {
+    
     const cookies = new Cookies();
     // cookies.set('myCat', arr, { path: '/' });
-    const data=cookies.get('myCat'); 
+    const data=cookies.get('myData'); 
+    const [cart, setCart] = useState(data);
+
+    function Reduce(){
+        const cookies = new Cookies();
+            // cookies.remove('myCato');
+            
+        let old = cookies.get('myData');
+        old.pop();
+        cookies.set('myData', old, { path: '/' });
+        const data2=cookies.get('myData'); 
+        setCart(data2);
+        
+
+    }
     return (
         <div>
             <div className="cart__header">
@@ -20,12 +37,12 @@ function Cart() {
                     <button style={{marginLeft:"50%"}}>Close</button>
                 </Link>
             </div>
-            {data != null ?(
-                data.map((data)=>
+            {cart != null ?(
+                cart.map((data)=>
             
                 <div className="cart__box">
                     <div className="cart__count">
-                        <button className="cart__count__button" onClick={()=>data.cart+1}>
+                        <button className="cart__count__button" onClick={()=>data.cartQuantity+1}>
                             <Image
                                 src="/up.png"
                                 width={30}
@@ -33,8 +50,8 @@ function Cart() {
                             />
                             
                         </button>
-                            <p>{data.cart}</p>
-                        <button className="cart__count__button" onClick={()=>data.cart-1}>
+                            <p>{data.cartQuantity}</p>
+                        <button className="cart__count__button" onClick={()=>data.cartQuantity-1}>
                             <Image
                                 src="/down.png"
                                 width={30}
@@ -47,8 +64,8 @@ function Cart() {
                 <p className="cart__details__name">{data.name}</p>
                 <p className="cart__details__price">৳ {data.price} / {data.amount} {data.unit}</p>
                     </div>
-                <p className="cart__money">৳ {data.cart * data.price}</p>
-                    <button className="cart__cross">
+                <p className="cart__money">৳ {data.cartQuantity * data.price}</p>
+                    <button className="cart__cross" onClick={()=>Reduce()}>
                         <Image
                             src="/cross.png"
                             width={30}
@@ -59,7 +76,7 @@ function Cart() {
                 )
             ):(
                 <div>
-                    <h1>No Cart Data</h1>
+                    <h1 style={{display:"flex",justifyContent:"center",alignItems:"center"}}>No Cart Data</h1>
                     </div>
             )}
             <div className="cart__appbar">

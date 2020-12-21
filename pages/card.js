@@ -6,32 +6,70 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Cookies from 'universal-cookie';
 
-
+const arr=[];
 
 function Card() {
-    const arr=[]
     
+    const cookies = new Cookies();
+    // const cartNumber=cookies.get('myData'); 
+    // console.log(cartNumber.lenght);
+    // const [cartPointer, setCartPointer] = useState(cartNumber);
+        // function PassData(alldata){
+            
+        //     const data = 
+        //         {
+        //         img: alldata.img,
+        //         name: alldata.name,
+        //         price: alldata.Price,
+        //         amount: alldata.Amount,
+        //         unit: alldata.Unit,
+        //         cart:1,
+        //     }
+            
+        //     arr.push(data)
+        //     console.log(arr);
+        //     cookies.set('myCat', arr, { path: '/' });
+        //     console.log(cookies.get('myCat')); // Pacman
+        // }
+        
         function PassData(alldata){
+            
+            
+            
+            // arr.push(data)
+            // console.log(arr);
+            const cookies = new Cookies();
+            // cookies.remove('myCato');
+            
+            let old = cookies.get('myData');
             
             const data = 
                 {
+                // id: alldata.id,    
                 img: alldata.img,
                 name: alldata.name,
                 price: alldata.Price,
                 amount: alldata.Amount,
                 unit: alldata.Unit,
-                cart:1,
+                cartQuantity:1,
             }
             
-            arr.push(data)
-            console.log(arr);
-            const cookies = new Cookies();
-            cookies.set('myCat', arr, { path: '/' });
-            console.log(cookies.get('myCat')); // Pacman
+            // console.log(old);
+            
+            if(old == null){
+                old=[data];
+            }
+            else{               
+                old.push(data);
+            }
+            
+            cookies.set('myData', old, { path: '/' });
+            // console.log(cookies.get('myCat')); // Pacman
         }
-        
+        // console.log(cartPointer)
     return (
         <div>
+
             <Navbar/>
             <Bottombar/>
             <div className="main">
@@ -61,6 +99,13 @@ function Card() {
                     )}
                 </div>
             </div>
+            {/* {cartPointer >0 ?(
+                <div style={{position:"fixed",bottom:"23px",right:"15px",zIndex:"111111",background:"F97178",color:"white",padding:"0px 5px",borderRadius:"50px"}}>
+                    {cartPointer}
+                    </div>
+            ):(
+                null
+            )} */}
         </div>
     )
 }
