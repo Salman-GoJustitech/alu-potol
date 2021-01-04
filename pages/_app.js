@@ -4,6 +4,7 @@ import '../styles/bottombar.css'
 import '../styles/page-category.css'
 import '../styles/card.css'
 import '../styles/cart.css'
+import '../styles/Chat.css'
 import '../styles/product.css'
 
 

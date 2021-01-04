@@ -11,9 +11,12 @@ const arr=[];
 function Card() {
     
     const cookies = new Cookies();
-    // const cartNumber=cookies.get('myData'); 
-    // console.log(cartNumber.lenght);
-    // const [cartPointer, setCartPointer] = useState(cartNumber);
+    const cartNumber=cookies.get('myData'); 
+    var pointerNumber=0;
+    if(cartNumber != null){
+        pointerNumber=cartNumber.length;
+    }
+    const [cartPointer, setCartPointer] = useState(pointerNumber);
         // function PassData(alldata){
             
         //     const data = 
@@ -53,7 +56,7 @@ function Card() {
                 unit: alldata.Unit,
                 cartQuantity:1,
             }
-            
+            setCartPointer(cartPointer+1)
             // console.log(old);
             
             if(old == null){
@@ -99,13 +102,15 @@ function Card() {
                     )}
                 </div>
             </div>
-            {/* {cartPointer >0 ?(
-                <div style={{position:"fixed",bottom:"23px",right:"15px",zIndex:"111111",background:"F97178",color:"white",padding:"0px 5px",borderRadius:"50px"}}>
-                    {cartPointer}
-                    </div>
+            {cartPointer >0 ?(
+                <Link href="/cart">
+                    <div style={{position:"fixed",bottom:"23px",right:"15px",zIndex:"111111",background:"#F97178",color:"white",padding:"0px 5px",borderRadius:"50px"}}>
+                        {cartPointer}
+                        </div>
+                </Link>
             ):(
                 null
-            )} */}
+            )}
         </div>
     )
 }

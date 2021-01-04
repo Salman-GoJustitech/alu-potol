@@ -26,7 +26,7 @@ function Navbar() {
             <div className="navbar">
                 <button 
                 className="navbar__toggle"
-                onClick={() =>setMenu(!menu)}
+                onClick={() =>setMenu(!menu)+setModal(false)}
                 >
                     <Image
                     src="/toggle.png"
@@ -45,7 +45,7 @@ function Navbar() {
                     </button>
                 </div>
                 <button className="navbar__profile"
-                    onClick={() =>setModal(!modal)}
+                    onClick={() =>setModal(!modal)+setMenu(false)}
                 >
                     <Image
                     src="/3dot.png"
@@ -56,13 +56,17 @@ function Navbar() {
             </div>
             {menu ? (
                 <div className="sidebar__background">
+                    <div onClick={()=>setMenu(false)} className="sidebarAndmodal__off"/>
                     <div className="sidebar">
                         <p className="sidebar__header">Offers <span className="sidebar__header__offer">70</span></p>
                         <div className="sidebar__category__main">
+                <Link href="/">
+                            
                             <div className="sidebar__category"> 
                                 <Image src="/foods.png" width={20} height={20} />
                                 <p className="sidebar__category__name">Fruits & Vegetables</p>
                             </div>
+                            </Link>
                             <div className="sidebar__category"> 
                                 <Image src="/foods.png" width={20} height={20} />
                                 <p className="sidebar__category__name">Breakfast</p>
@@ -98,7 +102,8 @@ function Navbar() {
             ):(null)}
             {modal ? (
                 <div className="modal__background">
-                    <div style={{position:"fixed",top:"10%" ,left:"20%",width:"50%"}}>
+                    <div onClick={()=>setModal(false)} className="sidebarAndmodal__off"/>
+                    <div className="modal">
                         <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"#4F4F4F",width:"100%"}}>
                             <img src="/modal/1.png"/>
                             <p style={{color:"white",fontSize:"22px"}}> User</p>
@@ -107,10 +112,12 @@ function Navbar() {
                             <img src="/modal/2.png"/>
                             <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Your Profile</p>
                         </div>
-                        <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
-                            <img src="/modal/3.png"/>
-                            <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Your Orders</p>
-                        </div>
+                        <Link href="/cart">
+                            <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
+                                <img src="/modal/3.png"/>
+                                <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Your Orders</p>
+                            </div>
+                        </Link>
                         <div style={{display:"flex",padding:"10px 20px",alignItems:"center",backgroundColor:"white",width:"100%"}}>
                             <img src="/modal/4.png"/>
                             <p style={{color:"#4F4F4F",paddingLeft:"5px",fontSize:"20px"}}>Payment History</p>

@@ -53,7 +53,7 @@ function Product() {
         <img
                         src="/high.png"
                         width="100%"
-                       
+                        
                     />
         <p style={{padding:"30px 20px"}}>alupotol.com is an online shop in Dhaka, Bangladesh. We believe time is valuable to our fellow Dhaka residents, and that they should not have to waste hours in traffic, brave bad weather and wait in line just to buy basic necessities like eggs! This is why Alupotol delivers everything you need right at your door-step and at no additional cost.</p>
         <img

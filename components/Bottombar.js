@@ -6,13 +6,15 @@ function Bottombar() {
     return (
         <div className="bottombar">
             <button className="bottombar__chat">
+            <Link href="/chat">
                 <Image
                     src="/chat.png"
                     width={400}
                     height={300}
                 />
+            </Link>
             </button>
-            <button className="bottombar__start"> Start Shopping</button>
+            <Link href="/"><button className="bottombar__start"> Start Shopping</button></Link>
             <Link href="cart">
                 <button className="bottombar__cart">
                     <Image
